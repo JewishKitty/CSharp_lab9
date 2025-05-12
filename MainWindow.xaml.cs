@@ -10,7 +10,7 @@ using System.Windows;
 public partial class MainWindow : Window
 {
     /// <summary>
-    /// Конструктор окна
+    /// Инициализация окна
     /// </summary>
     public MainWindow()
     {
