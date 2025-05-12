@@ -31,7 +31,7 @@ public partial class MainWindow : Window
             double.TryParse(c, out double dc) &&
             da > 0 && db > 0 && dc > 0)
         {
-            return new Triangle(da, db, dc);
+            return new triangle(da, db, dc);
         }
         else
         {
