@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 
 
@@ -10,7 +10,7 @@ using System.Windows;
 public partial class MainWindow : Window
 {
     /// <summary>
-    /// Инициализация окна
+    /// Конструктор окна
     /// </summary>
     public MainWindow()
     {
@@ -45,14 +45,14 @@ public partial class MainWindow : Window
     /// </summary>
     private void CheckExistence_Click(object sender, RoutedEventArgs e)
     {
-        var triangle = ReadTriangle(SideA.Text, SideB.Text, SideC.Text);
-        if (triangle == null)
+        var ABC = ReadTriangle(SideA.Text, SideB.Text, SideC.Text);
+        if (ABC == null)
         {
             ResultTextBlock.Text = "Треугольник ABC не введён или длинны сторон отрицательные! Невозможно проверить существование.";
         }
         else
         {
-            if ((bool)triangle) ResultTextBlock.Text = "Треугольник существует.";
+            if ((bool)ABC) ResultTextBlock.Text = "Треугольник существует.";
             else ResultTextBlock.Text = "Треугольник не существует!";
         }
     }
@@ -63,18 +63,18 @@ public partial class MainWindow : Window
     /// </summary>
     private void CheckSquare_Click(object sender, RoutedEventArgs e)
     {
-        var triangle = ReadTriangle(SideA.Text, SideB.Text, SideC.Text);
-        if (triangle == null)
+        var ABC = ReadTriangle(SideA.Text, SideB.Text, SideC.Text);
+        if (ABC == null)
         {
             ResultTextBlock.Text = "Треугольник ABC не введён или длинны сторон отрицательные! Невозможно вычислить площадь.";
         }
-        else if (!(bool)triangle)
+        else if (!(bool)ABC)
         {
             ResultTextBlock.Text = "Треугольник ABC не существует! Невозможно вычислить площадь.";
         }
         else
         { 
-            ResultTextBlock.Text = $"Площадь ABC: {triangle.Square():F2}";
+            ResultTextBlock.Text = $"Площадь ABC: {ABC.Square():F2}";
         }
     }
 
@@ -84,18 +84,18 @@ public partial class MainWindow : Window
     /// </summary>
     private void CheckPerimeter_Click(object sender, RoutedEventArgs e)
     {
-        var triangle = ReadTriangle(SideA.Text, SideB.Text, SideC.Text);
-        if (triangle == null)
+        var ABC = ReadTriangle(SideA.Text, SideB.Text, SideC.Text);
+        if (ABC == null)
         {
             ResultTextBlock.Text = "Треугольник ABC не введён или длинны сторон отрицательные! Невозможно вычислить периметр.";
         }
-        else if (!(bool)triangle)
+        else if (!(bool)ABC)
         {
             ResultTextBlock.Text = "Треугольник ABC не существует! Невозможно вычислить периметр.";
         }
         else
         {
-            double perimeter = triangle; // неявное приведение к double
+            double perimeter = ABC; // неявное приведение к double
             ResultTextBlock.Text = $"Периметр ABC: {perimeter:F2}";
         }
     }
@@ -106,20 +106,20 @@ public partial class MainWindow : Window
     /// </summary>
     private void CompareTriangles_Click(object sender, RoutedEventArgs e)
     {
-        var t1 = ReadTriangle(SideA.Text, SideB.Text, SideC.Text);
-        var t2 = ReadTriangle(SideM.Text, SideK.Text, SideL.Text);
+        var ABC = ReadTriangle(SideA.Text, SideB.Text, SideC.Text);
+        var MLK = ReadTriangle(SideM.Text, SideK.Text, SideL.Text);
 
-        if (t1 == null || t2 == null)
+        if (ABC == null || MLK == null)
         {
             ResultTextBlock.Text = "Ввод треугольников не завершён или длинны сторон отрицательные.";
         }
-        else if (!(bool)t1 || !(bool)t2)
+        else if (!(bool)ABC || !(bool)MLK)
         {
             ResultTextBlock.Text = "Как минимум один из треугольников не существует.";
         }
         else
         {
-            ResultTextBlock.Text = $"ABC < MKL? {t1 < t2} \nABC > MKL? {t1 > t2}";
+            ResultTextBlock.Text = $"ABC < MKL? {ABC < MLK} \nABC > MKL? {ABC > MLK}";
         }
     }
 }
