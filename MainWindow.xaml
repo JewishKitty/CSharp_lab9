@@ -1,0 +1,48 @@
+﻿<!-- Главное окно приложения для тестирования треугольников -->
+<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Тестирование треугольников" Height="450" Width="800">
+
+    <!-- Основная сетка с внешним отступом -->
+    <Grid Margin="10">
+
+        <!-- Вертикальное размещение всех элементов интерфейса -->
+        <StackPanel>
+
+            <!-- Заголовок блока ввода треугольника ABC -->
+            <TextBlock Text="Введите стороны треугольника (ABC: проверка существования, площадь, периметр):"
+                       FontWeight="Bold"/>
+
+            <!-- Поля ввода сторон треугольника ABC -->
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBox x:Name="SideA" Width="100" Margin="5"/>
+                <TextBox x:Name="SideB" Width="100" Margin="5"/>
+                <TextBox x:Name="SideC" Width="100" Margin="5"/>
+            </StackPanel>
+
+            <!-- Заголовок блока ввода второго треугольника MKL -->
+            <TextBlock Text="Введите стороны второго треугольника (MKL, для сравнения):"
+                       FontWeight="Bold" Margin="0,15,0,0"/>
+
+            <!-- Поля ввода сторон треугольника MKL -->
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBox x:Name="SideM" Width="100" Margin="5"/>
+                <TextBox x:Name="SideK" Width="100" Margin="5"/>
+                <TextBox x:Name="SideL" Width="100" Margin="5"/>
+            </StackPanel>
+
+            <!-- Панель с кнопками операций -->
+            <WrapPanel Margin="0,15">
+                <Button Content="Проверить существование" Click="CheckExistence_Click" Margin="5"/>
+                <Button Content="Площадь" Click="CheckSquare_Click" Margin="5"/>
+                <Button Content="Периметр" Click="CheckPerimeter_Click" Margin="5"/>
+                <Button Content="Сравнить площади" Click="CompareTriangles_Click" Margin="5"/>
+            </WrapPanel>
+
+            <!-- Блок для отображения результата -->
+            <TextBlock x:Name="ResultTextBlock" Margin="0,10" FontSize="14" TextWrapping="Wrap"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
